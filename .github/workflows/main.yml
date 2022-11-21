@@ -9,24 +9,22 @@ jobs:
     runs-on: ubuntu-latest
     # Map a step output to a job output
     outputs:
-      all: ${{ steps.changes.outputs.all}}
-      ttl: ${{ steps.changes.outputs.ttl }}
+      all: ${{ steps.changedAll.outputs.all}}
+      ttl: ${{ steps.changedTtl.outputs.ttl }}
     steps:
       # Make sure we have some code to diff.
       - uses: actions/checkout@v3
         with:
           fetch-depth: 2 # OR "2" -> To retrieve the preceding commit.
-      - name: show git diff output for debugging
-        run: echo "Hello World"
-      - name: show git diff output for debugging
-        run: git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }}
-      - name: show git diff output for debugging
-        run: echo $(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)
       - name: Get changed files
-        id: changes
+        id: changedAll
         # Set outputs using the command.
         run: |
           echo "all=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)" >> $GITHUB_OUTPUT
+      - name: Get changed files
+        id: changedTtl
+        # Set outputs using the command.
+        run: |
           echo "ttl=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | grep .ttl$ | xargs)" >> $GITHUB_OUTPUT
 
   validate:
