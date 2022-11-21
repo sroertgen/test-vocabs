@@ -25,6 +25,7 @@ jobs:
         id: changedTtl
         # Set outputs using the command.
         run: |
+          echo $(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | grep .ttl$ | xargs)
           echo "ttl=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | grep .ttl$ | xargs)" >> $GITHUB_OUTPUT
 
   validate:
