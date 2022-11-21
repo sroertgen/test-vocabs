@@ -15,9 +15,7 @@ jobs:
       # Make sure we have some code to diff.
       - uses: actions/checkout@v3
       - name: show git diff output for debugging
-        run: |
-        echo $(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)
-        echo $(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | grep .ttl$ | xargs)
+        run: echo $(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)
       - name: Get changed files
         id: changes
         # Set outputs using the command.
