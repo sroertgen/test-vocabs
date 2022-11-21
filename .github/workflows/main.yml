@@ -17,6 +17,10 @@ jobs:
         with:
           fetch-depth: 2 # OR "2" -> To retrieve the preceding commit.
       - name: show git diff output for debugging
+        run: echo "Hello World"
+      - name: show git diff output for debugging
+        run: git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }}
+      - name: show git diff output for debugging
         run: echo $(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)
       - name: Get changed files
         id: changes
