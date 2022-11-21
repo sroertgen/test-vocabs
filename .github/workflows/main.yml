@@ -37,6 +37,6 @@ jobs:
     # if: ${{needs.changedfiles.outputs.ttl}}
     steps:
       - name: echo changed files
-        run: echo ${{needs.changedfiles.outputs.all}}
+        run: echo "${{needs.changedfiles.outputs.all}}"
       - name: echo changed files
-        run: echo ${{needs.changedfiles.outputs.ttl}}
+        run: echo "${{needs.changedfiles.outputs.ttl}}"
