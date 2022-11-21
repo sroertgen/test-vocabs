@@ -15,9 +15,9 @@ jobs:
       # Make sure we have some code to diff.
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # OR "2" -> To retrieve the preceding commit.
+          fetch-depth: 2 # OR "2" -> To retrieve the preceding commit.
       - name: show git diff output for debugging
-        run: echo $(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)
+        run: echo $(git diff --name-only --diff-filter=ACMRT 56b7f8705004c3ca3e9b52f94b4a155a736f5289 | xargs)
       - name: Get changed files
         id: changes
         # Set outputs using the command.
@@ -32,5 +32,7 @@ jobs:
     # only run there are changed files
     # if: ${{needs.changedfiles.outputs.ttl}}
     steps:
+      - name: echo changed files
+        run: echo ${{needs.changedfiles.outputs.all}}
       - name: echo changed files
         run: echo ${{needs.changedfiles.outputs.ttl}}
