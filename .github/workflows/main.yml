@@ -14,8 +14,6 @@ jobs:
     steps:
       # Make sure we have some code to diff.
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0  # OR "2" -> To retrieve the preceding commit.
       - name: Get changed files
         id: changes
         # Set outputs using the command.
@@ -28,7 +26,7 @@ jobs:
     # require the first job to have ran
     needs: changedfiles
     # only run there are changed files
-    if: ${{needs.changedfiles.outputs.ts}}
+    if: ${{needs.changedfiles.outputs.ttl}}
     steps:
       - name: echo changed files
         run: echo ${{needs.changedfiles.outputs.ttl}}
