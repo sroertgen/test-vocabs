@@ -7,8 +7,9 @@ do
     esac
 done
 
-
+echo "docker run --rm -v $(pwd)/$shape:/rdf/shape.ttl -v $(pwd)/$file:/rdf/file.ttl laocoon667/jena:4.6.1 shacl v -s /rdf/shape.ttl -d /rdf/file.ttl > result.ttl"
 docker run --rm -v $(pwd)/$shape:/rdf/shape.ttl -v $(pwd)/$file:/rdf/file.ttl laocoon667/jena:4.6.1 shacl v -s /rdf/shape.ttl -d /rdf/file.ttl > result.ttl
+
 validationResult="$(docker run --rm -v $(pwd)/scripts/check-for-violation.rq:/rdf/check-for-violation.rq -v $(pwd)/result.ttl:/rdf/result.ttl laocoon667/jena:4.6.1 arq --data /rdf/result.ttl --query /rdf/check-for-violation.rq)"
 lines=$(echo "$validationResult" | wc -l )
 echo "$validationResult"
