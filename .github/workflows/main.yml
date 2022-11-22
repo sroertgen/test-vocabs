@@ -25,7 +25,6 @@ jobs:
         id: set-matrix
         run: echo "ttl=${{ steps.changed-files.outputs.all_changed_files }}" >> $GITHUB_OUTPUT
 
-
   validate:
     runs-on: ubuntu-latest
     needs: changedfiles
@@ -35,6 +34,9 @@ jobs:
       matrix:
         file: ${{ fromJson(needs.changedfiles.outputs.ttl) }}
     steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2 # OR "2" -> To retrieve the preceding commit.
       - name: echo changed files
         run: echo "${{ matrix.file }}"
 
