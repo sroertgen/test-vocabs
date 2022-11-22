@@ -3,7 +3,7 @@ do
     case "${flag}" in
         f) file=${OPTARG};;
         s) shape=${OPTARG};;
-        l) severity=${OPTARG};;
+        l) severity=${OPTARG};; # not used right now
     esac
 done
 
