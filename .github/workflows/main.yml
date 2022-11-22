@@ -37,7 +37,7 @@ jobs:
     if: ${{needs.changedfiles.outputs.ttl}}
     strategy:
       matrix:
-        files: ${{ fromJson(needs.changedfiles.outputs.ttl) }}
+        file: ${{ fromJson(needs.changedfiles.outputs.ttl) }}
     steps:
       - name: echo changed files
-        run: echo "${{ matrix.ttl-file }}"
+        run: echo "${{ matrix.file }}"
