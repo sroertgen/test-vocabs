@@ -41,4 +41,4 @@ jobs:
         run: echo "${{ matrix.file }}"
 
       - name: Validate with script
-        run: bash ${GITHUB_WORKSPACE}/scripts/validate-skos.sh -f ${{ matrix.file }} -s ${GITHUB_WORKSPACE}/scripts/skos.shacl.ttl
+        run: bash ${GITHUB_WORKSPACE}/scripts/validate-skos.sh -f ${GITHUB_WORKSPACE}/${{ matrix.file }} -s ${GITHUB_WORKSPACE}/scripts/skos.shacl.ttl
