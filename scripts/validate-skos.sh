@@ -7,10 +7,12 @@ do
     esac
 done
 
-echo "docker run --rm -v $shape:/rdf/shape.ttl -v $file:/rdf/file.ttl laocoon667/jena:4.6.1 shacl v -s /rdf/shape.ttl -d /rdf/file.ttl > result.ttl"
+echo "Validate: docker run --rm -v $shape:/rdf/shape.ttl -v $file:/rdf/file.ttl laocoon667/jena:4.6.1 shacl v -s /rdf/shape.ttl -d /rdf/file.ttl > result.ttl"
 docker run --rm -v $shape:/rdf/shape.ttl -v $file:/rdf/file.ttl laocoon667/jena:4.6.1 shacl v -s /rdf/shape.ttl -d /rdf/file.ttl > result.ttl
 
-validationResult="$(docker run --rm -v scripts/check-for-violation.rq:/rdf/check-for-violation.rq -v result.ttl:/rdf/result.ttl laocoon667/jena:4.6.1 arq --data /rdf/result.ttl --query /rdf/check-for-violation.rq)"
+echo "Parse Validation: docker run --rm -v $(pwd)/scripts/check-for-violation.rq:/rdf/check-for-violation.rq -v $(pwd)/result.ttl:/rdf/result.ttl laocoon667/jena:4.6.1 arq --data /rdf/result.ttl --query /rdf/check-for-violation.rq"
+
+validationResult="$(docker run --rm -v $(pwd)/scripts/check-for-violation.rq:/rdf/check-for-violation.rq -v $(pwd)/result.ttl:/rdf/result.ttl laocoon667/jena:4.6.1 arq --data /rdf/result.ttl --query /rdf/check-for-violation.rq)"
 lines=$(echo "$validationResult" | wc -l )
 echo "$validationResult"
 echo $lines
