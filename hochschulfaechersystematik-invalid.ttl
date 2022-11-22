@@ -25,7 +25,8 @@
   skos:prefLabel "Sport"@de, "Sports"@en, "Спорт"@uk ;
   skos:narrower <n22>;
   skos:notation "2" ;
-  skos:topConceptOf <scheme> .
+  # skos:topConceptOf <scheme> 
+  .
 
 <n3> a skos:Concept ;
   skos:prefLabel "Rechts-, Wirtschafts- und Sozialwissenschaften"@de, "Law, Economics and Social Sciences"@en, "Право, економіка та суспільні науки"@uk ;
