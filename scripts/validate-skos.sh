@@ -8,7 +8,7 @@ do
 done
 
 # check file is not empty
-test $(wc -l $(pwd)/$file | awk '{print $1}') -gt 0 || echo "file has no lines, aborting" && exit 1
+test $(wc -l $file | awk '{print $1}') -gt 0 || echo "file has no lines, aborting" && exit 1
 
 echo "Validate: docker run --rm -v $shape:/rdf/shape.ttl -v $file:/rdf/file.ttl laocoon667/jena:4.6.1 shacl v -s /rdf/shape.ttl -d /rdf/file.ttl > result.ttl"
 docker run --rm -v $shape:/rdf/shape.ttl -v $file:/rdf/file.ttl laocoon667/jena:4.6.1 shacl v -s /rdf/shape.ttl -d /rdf/file.ttl > result.ttl
