@@ -17,16 +17,12 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@v34
         with:
-        #   files: |
-        #     *.ttl
+          files: |
+            *.ttl
           json: "true"
-      
-      - name: List all changed files
-        run: |
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            echo "$file was changed"
-          done
-      - id: set-matrix
+
+      - name: Set matrix
+        id: set-matrix
         run: echo "ttl=${{ steps.changed-files.outputs.all_changed_files }}" >> $GITHUB_OUTPUT
 
 
@@ -41,3 +37,6 @@ jobs:
     steps:
       - name: echo changed files
         run: echo "${{ matrix.file }}"
+
+      - name: Validate with script
+        run: bash ${GITHUB_WORKSPACE}/scripts/validate-skos.sh -f ${{ matrix.file }} -s ${GITHUB_WORKSPACE}/scripts/check-for-violation.rq
