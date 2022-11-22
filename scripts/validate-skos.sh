@@ -18,4 +18,4 @@ echo "$validationResult"
 echo $lines
 
 # an empty result, i.e. a correct validation has 4 lines of output
-[[ ${lines} -gt 4 ]] && echo "validation errors" || echo "no validation errors"
+[[ ${lines} -gt 4 ]] && echo "validation errors" && exit 1 || echo "no validation errors"
