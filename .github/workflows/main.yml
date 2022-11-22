@@ -18,7 +18,7 @@ jobs:
         uses: tj-actions/changed-files@v34
         with:
           files: |
-            *.ttl
+            **/*.ttl
           json: "true"
 
       - name: Set matrix
