@@ -7,38 +7,36 @@ on:
 jobs:
   changedfiles:
     runs-on: ubuntu-latest
-    # Map a step output to a job output
     outputs:
-      all: ${{ steps.changedAll.outputs.all}}
-      ttl: ${{ steps.changedTtl.outputs.ttl }}
+      ttl: ${{ steps.set-matrix.outputs.ttl }}
     steps:
-      # Make sure we have some code to diff.
       - uses: actions/checkout@v3
         with:
           fetch-depth: 2 # OR "2" -> To retrieve the preceding commit.
-      # Example 1
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v34
         with:
           files: |
             *.ttl
-
+      
       - name: List all changed files
         run: |
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             echo "$file was changed"
           done
+      - id: set-matrix
+        run: echo "ttl=${{ steps.changed-files.outputs.all_changed_files }}" >> $GITHUB_OUTPUT
 
 
   validate:
     runs-on: ubuntu-latest
-    # require the first job to have ran
     needs: changedfiles
     # only run there are changed files
     # if: ${{needs.changedfiles.outputs.ttl}}
+    strategy:
+      matrix:
+        ttl-file: ${{ needs.changedfiles.outputs.ttl) }}
     steps:
       - name: echo changed files
-        run: echo "${{needs.changedfiles.outputs.all}}"
-      - name: echo changed files
-        run: echo "${{needs.changedfiles.outputs.ttl}}"
+        run: echo "${{ matrix.ttl-file }}"
