@@ -5,8 +5,8 @@
 
 
 <scheme> a skos:ConceptScheme;
-        dct:title "Hochschulcampus Ressourcentypen"@de, "Higher Education Resource Types"@en, "Типи ресурсів вищої освіти"@uk ;
-        dct:description "Eine Wertelliste für Typen von Lernressourcen (Learning Resource Type), entstanden im Kontext des Metadatenschemas \"LOM for Higher Education OER Repositories\" (https://w3id.org/dini-ag-kim/hs-oer-lom-profil/latest/)."@de ;
+        dct:title "Hochschulcampus Ressourcentypen"@de, "Higher Education Resource Types"@en ;
+        dct:description "Eine Wertelliste für Typen von Lernressourcen (Learning Resource Type), entstanden im Kontext des Metadatenschemas \"LOM for Higher Education OER Repositories\" (https://w3id.org/dini-ag-kim/hs-oer-lom-profil/latest/)."@de, "a value list for learning resources types, developed in the context of a metadata schema LOM for Higher Education OER Repositories\" (https://w3id.org/dini-ag-kim/hs-oer-lom-profil/latest/)."@en ;
         dct:publisher <https://oerworldmap.org/resource/urn:uuid:fd06253e-fe67-4910-b923-51db9d27e59f> ;
         dct:issued "2020-02-07" ;
         vann:preferredNamespaceUri "https://w3id.org/kim/hcrt/" ;
@@ -14,121 +14,137 @@
         dct:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
         skos:hasTopConcept <application>, <assessment>, <audio>, <case_study>, <course>, <data>, <diagram>,
             <drill_and_practice>, <educational_game>, <experiment>, <image>, <index>, <lesson_plan>, <map>, 
-            <portal>, <questionnaire>, <script>, <sheet_music>, <simulation>, <slide>, <text>, <textbook>, <video>, <web_page>,
+            <portal>, <questionnaire>, <script>, <simulation>, <slide>, <text>, <textbook>, <video>, <web_page>,
             <worksheet>, <other> .
 
 <application> a skos:Concept;
            skos:topConceptOf <scheme> ;
-           skos:prefLabel "Softwareanwendung"@de, "Software Application"@en, "Програмне забезпечення"@uk .
+           skos:prefLabel "Softwareanwendung"@de .
 
 <assessment> a skos:Concept;
           skos:topConceptOf <scheme> ;
-          skos:prefLabel "Lernkontrolle"@de, "Assessment"@en, "Оцінювання"@uk ;
-          skos:altLabel "Assessment"@de ;
-          skos:scopeNote "unter anderem (Selbst-)Tests"@de .
+          skos:prefLabel "Lernkontrolle"@de, "Assessment"@en ;
+          skos:scopeNote "unter anderem (Selbst-)Tests"@de, "amongst others (self) tests"@en .
 
 <audio> a skos:Concept;
            skos:topConceptOf <scheme> ;
-           skos:prefLabel "Audio"@de, "Audio Recording"@en, "Аудіозапис"@uk ;
-           skos:altLabel "Tonaufnahme"@de, "Звукозапис"@uk .
+           skos:prefLabel "Tonaufnahme"@de, "Audio Recording"@en .
 
 <case_study> a skos:Concept;
           skos:topConceptOf <scheme> ;
-          skos:prefLabel "Fallstudie"@de, "Case Study"@en, "Приклад"@uk .
+          skos:prefLabel "Fallstudie"@de, "Case Study"@en .
 
 <course> a skos:Concept;
           skos:topConceptOf <scheme> ;
-          skos:prefLabel "Kurs"@de, "Course"@en, "Курс"@uk .
+          skos:prefLabel "Kurs"@de, "Course"@en .
 
 <data> a skos:Concept;
           skos:topConceptOf <scheme> ;
-          skos:prefLabel "Daten"@de, "Data"@en, "Дані"@uk ;
-          skos:scopeNote "unter anderem Roh- oder Beispieldaten"@de, "amongst others raw and example data"@en, "включно з необробленими даними та зразками"@uk .
+          skos:prefLabel "Daten"@de, "Data"@en ;
+          skos:scopeNote "unter anderem Roh- oder Beispieldaten"@de, "amongst others raw and example data"@en .
 
 <diagram> a skos:Concept;
           skos:topConceptOf <scheme> ;
-          skos:prefLabel "Diagramm"@de, "Diagram"@en, "Діаграма"@uk ;
-          skos:altLabel "Grafik"@de, "Графіка"@uk .
+          skos:prefLabel "Diagramm"@de, "Diagram"@en ;
+          skos:altLabel "Grafik"@de, "chart"@en, "graph"@en .
 
 <drill_and_practice> a skos:Concept;
           skos:topConceptOf <scheme> ;
-          skos:prefLabel "Übung"@de, "Drill and Practice"@en, "Практика"@uk .
+          skos:prefLabel "Übung"@de, "Drill and Practice"@en .
 
 <educational_game> a skos:Concept;
           skos:topConceptOf <scheme> ;
-          skos:prefLabel "Lernspiel"@de, "Game"@en, "Навчальна гра"@uk .
+          skos:prefLabel "Lernspiel"@de, "Game"@en .
 
 <experiment> a skos:Concept;
           skos:topConceptOf <scheme> ;
-          skos:prefLabel "Experiment"@de, "Experiment"@en, "Експеримент"@uk .
+          skos:prefLabel "Experiment"@de, "Experiment"@en .
 
 <image> a skos:Concept;
           skos:topConceptOf <scheme> ;
-          skos:prefLabel "Abbildung"@de, "Image"@en, "Ілюстрація"@uk ;
-          skos:altLabel "Bild"@de, "Зображення"@uk ;
-          skos:scopeNote "Fotos, Grafiken und sonstige Bilder"@de, "photos, graphics, and other images"@en, "Фотографії, графіки та інші зображення"@uk .
+          skos:prefLabel "Abbildung"@de, "Image"@en ;
+          skos:scopeNote "Fotos und sonstige Bilder"@de, "photos and other images"@en .
 
 <index> a skos:Concept;
           skos:topConceptOf <scheme> ;
-          skos:prefLabel "Nachschlagewerk"@de, "Reference Work"@en, "Довідник"@uk ;
-          skos:scopeNote "zum Beispiel Glossar, Enzyklopädie, Lexikon"@de, "e.g.glossary, encyclopedia, dictionary"@en, "наприклад, глосарій, енциклопедія, словник"@uk .
+          skos:prefLabel "Nachschlagewerk"@de, "Reference Work"@en ;
+          skos:narrowMatch <https://d-nb.info/gnd/4014986-9> ;
+          skos:broadMatch <https://d-nb.info/gnd/4129544-4>;
+          skos:exactMatch <https://d-nb.info/gnd/4041070-5>;
+          skos:relatedMatch <https://d-nb.info/gnd/7545251-0> ;
+          skos:related <other> ;
+          skos:scopeNote "zum Beispiel Glossar, Enzyklopädie, Lexikon"@de, "e.g. glossary, encyclopedia, dictionary"@en .
+
+<test_collection> a skos:Collection ;
+          skos:prefLabel "Test-SKOS-Sammlung A"@de, "A Test SKOS collection"@en ;
+          skos:member <application>, <assessment>, <audio> .
+
+<https://d-nb.info/gnd/4014986-9> skos:prefLabel "Enzyklopädie"@de .
+
+<https://d-nb.info/gnd/4129544-4> skos:prefLabel "Informationsmittel"@de .
+
+<https://d-nb.info/gnd/4041070-5> skos:prefLabel "Nachschlagewerk"@de .
+
+<https://d-nb.info/gnd/7545251-0> skos:prefLabel "Wikipedia"@de , "Wikipedia"@en .
 
 <lesson_plan> a skos:Concept;
           skos:topConceptOf <scheme> ;
-          skos:prefLabel "Unterrichtsplanung"@de, "Lesson Plan"@en, "План уроку"@uk .
+          skos:prefLabel "Unterrichtsplanung"@de, "Lesson Plan"@en .
 
 <map> a skos:Concept;
           skos:topConceptOf <scheme> ;
-          skos:prefLabel "Karte"@de, "Map"@en, "Мапа"@uk .
+          skos:prefLabel "Karte"@de, "Map"@en .
 
 <portal> a skos:Concept;
           skos:topConceptOf <scheme> ;
-          skos:prefLabel "Portal"@de, "Web Portal"@en, "Портал"@uk .
+          skos:prefLabel "Portal"@de, "Web Portal"@en .
 
 <questionnaire> a skos:Concept;
           skos:topConceptOf <scheme> ;
-          skos:prefLabel "Fragebogen"@de, "Questionnaire"@en, "Анкета"@uk ;
-          skos:scopeNote "auch Rechercheauftrag und WebQuest"@de, "also research assignment and WebQuest"@en, "також дослідницьке завдання та веб-квест"@uk .
+          skos:prefLabel "Fragebogen"@de, "Questionnaire"@en ;
+          skos:scopeNote "auch Rechercheauftrag und WebQuest"@de, "also research assignment and WebQuest"@en .
 
 <script> a skos:Concept;
           skos:topConceptOf <scheme> ;
-          skos:prefLabel "Skript"@de, "Script"@en, "Запис"@uk ;
-          skos:scopeNote "zum Beispiel Vorlesungsskript"@de, "for example lecture notes"@en, "наприклад конспект лекцій"@uk .
-
-<sheet_music> a skos:Concept ;
-          skos:topConceptOf <scheme> ;
-          skos:prefLabel "Musiknoten"@de, "Sheet Music"@en, "Ноти"@uk .
+          skos:prefLabel "Skript"@de, "Script"@en ;
+          skos:scopeNote "zum Beispiel Vorlesungsskript"@de, "for example lecture notes"@en .
 
 <simulation> a skos:Concept;
           skos:topConceptOf <scheme> ;
-          skos:prefLabel "Simulation"@de, "Simulation"@en, "Симуляція"@uk .
+          skos:relatedMatch <https://d-nb.info/gnd/4055072-2> ;
+          skos:prefLabel "Simulation"@de, "Simulation"@en .
 
 <slide> a skos:Concept;
           skos:topConceptOf <scheme> ;
-          skos:prefLabel "Präsentation"@de, "Presentation"@en, "Презентація"@uk .
+          skos:broadMatch <https://d-nb.info/gnd/4135231-2> ;
+          skos:prefLabel "Präsentation"@de, "Presentation"@en .
 
 <text> a skos:Concept;
           skos:topConceptOf <scheme> ;
-          skos:prefLabel "Textdokument"@de, "Text"@en, "Текстовий документ"@uk ;
-          skos:scopeNote "zum Beispiel Artikel, Aufsatz, Abhandlung"@de, "for example article, essay"@en, "наприклад, стаття, есе, трактат"@uk .
+          skos:related <worksheet>, <slide>, <script>, <questionnaire>, <lesson_plan>, <assessment> ;
+          skos:prefLabel "Textdokument"@de, "Text"@en ;
+          skos:scopeNote "zum Beispiel Artikel, Aufsatz, Abhandlung"@de, "for example article, essay"@en .
 
 <textbook> a skos:Concept;
           skos:topConceptOf <scheme> ;
-          skos:prefLabel "Lehrbuch"@de, "Textbook"@en, "Підручник"@uk .
+          skos:prefLabel "Lehrbuch"@de, "Textbook"@en .
 
 <video> a skos:Concept;
           skos:topConceptOf <scheme> ;
-          skos:prefLabel "Video"@de, "Video"@en, "Відео"@uk .
+          skos:closeMatch <https://d-nb.info/gnd/4078895-7> ;
+          skos:prefLabel "Video"@de, "Video"@en .
 
 <web_page> a skos:Concept;
           skos:topConceptOf <scheme> ;
-          skos:prefLabel "Webseite"@de, "Web Page"@en, "Веб-сайт"@uk .
+          skos:related <portal> ;
+          skos:prefLabel "Webseite"@de, "Web Page"@en .
 
 <worksheet> a skos:Concept;
           skos:topConceptOf <scheme> ;
-          skos:prefLabel "Arbeitsmaterial"@de, "Worksheet"@en, "Робочий матеріал"@uk ;
-          skos:scopeNote "zum Beispiel Arbeitsblatt"@de, "наприклад робочий аркуш"@uk .
+          skos:exactMatch <https://d-nb.info/gnd/4252086-1> ;
+          skos:prefLabel "Arbeitsmaterial"@de, "work material"@en ;
+          skos:scopeNote "zum Beispiel Arbeitsblatt"@de , "for example work sheet"@en.
 
 <other> a skos:Concept;
           skos:topConceptOf <scheme> ;
-          skos:prefLabel "Sonstiges"@de, "Other"@en, "Різне"@uk .
+          skos:prefLabel "Sonstiges"@de, "Other"@en .
