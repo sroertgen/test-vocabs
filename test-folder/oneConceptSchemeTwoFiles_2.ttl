@@ -5,7 +5,7 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 
 <c1> a skos:Concept ;
-  skos:prefLabel "Konzept 1"@de, "Concept 1"@en ;
+  skos:prefLabel "Konzept 1 Test Branch"@de, "Concept 1"@en ;
   skos:altLabel "Alternativbezeichnung 1"@de, "Alternativbezeichnung 2"@de, "Alt Label 1"@en ;
   skos:hiddenLabel "Verstecktes Label 1"@de, "Verstecktes Label 2"@de ;
   skos:definition "Meine Definition"@de ;
